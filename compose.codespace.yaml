@@ -1,7 +1,9 @@
 services:
-  weather-api:
+  api:
     build:
       context: .
       dockerfile: Dockerfile
     ports:
       - '3000:3000'
+    env_file: '.env'
+    network_mode: host

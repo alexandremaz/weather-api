@@ -25,12 +25,11 @@ import { destination } from 'pino';
           pinoHttp: [
             {
               level: config.NODE_ENV === 'production' ? 'info' : 'debug',
-              transport:
-                config.NODE_ENV !== 'production'
-                  ? {
-                      target: 'pino-pretty',
-                    }
-                  : undefined,
+              transport: !['production', 'ci'].includes(config.NODE_ENV)
+                ? {
+                    target: 'pino-pretty',
+                  }
+                : undefined,
             },
             destination(),
           ],

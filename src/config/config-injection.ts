@@ -44,7 +44,7 @@ export default registerAs('config', () =>
       }),
       z.object({
         API_KEY: z.string().default(''),
-        NODE_ENV: z.literal(['dev', 'developpement', 'local']),
+        NODE_ENV: z.literal(['developpement', 'ci']).default('ci'),
         OPEN_WEATHER_MAP_API_KEY: z.string().optional(),
         OPEN_WEATHER_MAP_URL: z.url().optional(),
       }),
