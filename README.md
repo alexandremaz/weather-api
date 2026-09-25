@@ -33,13 +33,13 @@ $ npm run test:e2e
 
 ## Deployment
 
-For deployment, [Render](render.com) is used (free plan), in coordination with a private docker hub (free plan too).
-What happens is that when the github 'cd' job pushes a latest tag of the image, docker hub calls a webhook that triggers [render](render.com) deployment. [Render](render.com) also checks healthcheck with a '/health' path.
+For deployment, [Render](https://render.com) is used (free plan), in coordination with a private docker hub (free plan too).
+What happens is that when the github 'cd' job pushes a latest tag of the image, docker hub calls a webhook that triggers [render](https://render.com) deployment. [Render](https://render.com) also checks healthcheck with a '/health' path.
 
 ## Observability
 
-For observability, dd-trace (datadog nodejs sdk) was used, with minimal setup.
-I also added logging both in dev and prod mode, with pino and pino-pretty.
+For observability, [dd-trace](https://github.com/DataDog/dd-trace-js) (datadog's nodejs sdk) was used, with minimal setup.
+I also added logging both in dev and prod mode, with [pino](https://github.com/pinojs/pino) and [pino-pretty](https://github.com/pinojs/pino-pretty).
 
 ## Resources
 
