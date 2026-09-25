@@ -1,5 +1,3 @@
-# syntax=docker/dockerfile:1
-
 # took from https://docs.docker.com/guides/nodejs/
 
 # This Dockerfile uses Docker Hardened Images (DHI) for enhanced security.
@@ -7,7 +5,7 @@
 
 # Development stage: install all dependencies, compile TypeScript, and
 # serve with hot-reload. Used directly in development via compose.yaml.
-FROM dhi.io/node:24.21.0-debian13-dev AS dev
+FROM dhi.io/node:24-debian13-dev AS dev
 
 WORKDIR /app
 
@@ -32,7 +30,7 @@ CMD ["npm", "run", "start:dev"]
 
 
 # Deps stage: install production dependencies only.
-FROM dhi.io/node:24.21.0-debian13-dev AS deps
+FROM dhi.io/node:24-debian13-dev AS deps
 
 WORKDIR /app
 
@@ -43,7 +41,7 @@ RUN --mount=type=cache,target=/root/.npm \
 
 
 # Runner stage: minimal runtime image with compiled app and production deps.
-FROM dhi.io/node:24.21.0-debian13 AS runner
+FROM dhi.io/node:24-debian13 AS runner
 
 ENV PATH=/app/node_modules/.bin:$PATH
 
