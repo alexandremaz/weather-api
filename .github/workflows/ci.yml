@@ -33,6 +33,7 @@ jobs:
         if: always()
         run: docker compose down
   cd:
+    needs: ci
     runs-on: ubuntu-latest
     steps:
       - name: Login to Docker Hub
